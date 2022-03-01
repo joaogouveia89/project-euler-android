@@ -7,14 +7,11 @@ object MultiplesOf3AndFive: Problem<Int>(
     projectEulerId = 1
 ) {
 
-    override var _result: Int = 0
-
-    override fun solutionImpl()  {
+    override fun solutionImpl(): Int  {
         var sum = 0
         for (i in 3..1000) {
             if (i % 3 == 0 || i % 5 == 0) sum += i
         }
-        _result = sum
-        _hasBeenCalculated = true
+        return sum
     }
 }

@@ -1,6 +1,5 @@
 package io.github.joaogouveia89.projecteuler.ui
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import io.github.joaogouveia89.projecteuler.problems.solutions.MultiplesOf3AndFive
@@ -21,7 +20,6 @@ class MainViewModel : ViewModel() {
         if(observerLifecycle == null && onCompleteCallback == null) return
 
         pool.submit {
-            Log.i("JOAODEBUG", "Solving id = $projectEulerId")
             problemsList.single {
                 it.projectEulerId == projectEulerId
             }.solve()
@@ -33,6 +31,5 @@ class MainViewModel : ViewModel() {
         //lifecycleOwner.lifecycle.currentState == Lifecycle.State.DESTROYED
         observerLifecycle = lifecycleOwner
         onCompleteCallback = onComplete
-        Log.i("JOAODEBUG", "observeProblemSolution")
     }
 }

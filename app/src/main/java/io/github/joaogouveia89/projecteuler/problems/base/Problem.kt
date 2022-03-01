@@ -3,7 +3,7 @@ package io.github.joaogouveia89.projecteuler.problems.base
 abstract class Problem<T>(
     val title: String,
     val projectEulerId: Int,
-){
+) where T : Any{
     val hasBeenCalculated: Boolean
         get() = _hasBeenCalculated
 
@@ -11,20 +11,21 @@ abstract class Problem<T>(
         get() = _elapsedTime
 
 
-    protected var _hasBeenCalculated = false
+    private var _hasBeenCalculated = false
 
-    protected var _elapsedTime: Long = 0
+    private var _elapsedTime: Long = 0
 
-    val result: T
+    val result: Any
         get() = _result
 
-    protected abstract var _result: T
+    private var _result: Any = Any()
 
-    protected abstract fun solutionImpl()
+    protected abstract fun solutionImpl(): T
 
     fun solve(){
         val startTime = System.currentTimeMillis()
-        solutionImpl()
+        _result = solutionImpl()
+        _hasBeenCalculated = true
         val endTime = System.currentTimeMillis()
         _elapsedTime = endTime - startTime
     }
