@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock
 abstract class MathSequence(private val roof: BigInteger) {
 
     protected abstract val sequenceWork: Thread
-    private val sequence = mutableListOf<BigInteger>()
+    protected val sequence = mutableListOf<BigInteger>()
 
     private val arrayOpLock: Lock = ReentrantLock()
     private var sequenceSize = 0
@@ -39,9 +39,9 @@ abstract class MathSequence(private val roof: BigInteger) {
         }
 
 
-    protected open fun get(position: Int): BigInteger = synchronized(arrayOpLock) { return sequence[position] }
+    open fun get(position: Int): BigInteger = synchronized(arrayOpLock) { return sequence[position] }
 
-    protected open fun sequenceSize(): Int = synchronized(arrayOpLock) { return sequenceSize }
+    open fun sequenceSize(): Int = synchronized(arrayOpLock) { return sequenceSize }
 
     protected open fun addAll(items: List<BigInteger>) =
         synchronized(arrayOpLock) {
