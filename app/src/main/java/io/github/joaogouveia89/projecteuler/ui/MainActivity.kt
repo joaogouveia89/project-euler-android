@@ -1,8 +1,8 @@
 package io.github.joaogouveia89.projecteuler.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import io.github.joaogouveia89.projecteuler.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(){
