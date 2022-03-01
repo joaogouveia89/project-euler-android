@@ -2,12 +2,14 @@ package io.github.joaogouveia89.projecteuler.ui
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
+import io.github.joaogouveia89.projecteuler.problems.solutions.EvenFibonacciNumbers
 import io.github.joaogouveia89.projecteuler.problems.solutions.MultiplesOf3AndFive
 import java.util.concurrent.Executors
 
 class MainViewModel : ViewModel() {
     val problemsList = listOf(
-        MultiplesOf3AndFive
+        MultiplesOf3AndFive,
+        EvenFibonacciNumbers
     )
 
     private val pool = Executors.newCachedThreadPool()
